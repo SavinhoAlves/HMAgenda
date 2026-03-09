@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Definição de cores personalizadas se desejar expandir o tema */
+  --font-sans: "Inter", "ui-sans-serif", "system-ui", sans-serif;
+}
+
+/* No Tailwind v4, customizações globais de CSS permanecem simples */
+body {
+ @apply font-sans antialiased text-slate-900 bg-[#F0F4F8];
+  margin: 0;
+}
+
+/* Custom Scrollbar para o feeling de "App" */
+/* Nota: Navegadores modernos suportam scrollbar-color, 
+   mas mantemos o webkit para compatibilidade total */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Camada de componentes para as bordas coloridas da planilha */
+@layer components {
+  .tag-red { border-left: 4px solid #dc2626 !important; }
+  .tag-orange { border-left: 4px solid #f97316 !important; }
+  .tag-purple { border-left: 4px solid #581c87 !important; }
+  .tag-emerald { border-left: 4px solid #10b981 !important; }
+  
+  /* Container das colunas com Glassmorphism */
+  .card-container {
+    @apply bg-white/40 border border-white rounded-3xl p-4 shadow-sm backdrop-blur-sm overflow-y-auto;
+  }
+}
